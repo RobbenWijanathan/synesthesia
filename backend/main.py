@@ -4,9 +4,21 @@ import uuid
 from pathlib import Path
 
 from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI(title="Synesthesia Stem Separation API")
+
+# The frontend runs on a different port (e.g. localhost:5500) than this API
+# (localhost:8000). Without CORS enabled, the browser blocks the fetch() call,
+# and just as importantly, Web Audio API's AnalyserNode will silently return
+# empty data for cross-origin audio that isn't served with CORS headers.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # fine for local dev, tighten before deploying anywhere
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 UPLOAD_DIR = Path("uploads")
 OUTPUT_DIR = Path("separated")

@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0f;
+  color: #e6e6e6;
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+#upload-section,
+#player-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+button {
+  background: #1a1a24;
+  color: #e6e6e6;
+  border: 1px solid #444;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  border-color: #7df9ff;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#status {
+  color: #999;
+  font-size: 0.9em;
+}
+
+#visualizer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.stem-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.stem-label {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chaos-value {
+  font-family: monospace;
+  font-weight: bold;
+  color: #ff5577;
+  min-width: 2.5em;
+  text-align: right;
+}
+
+.chaos-value::before {
+  content: "CHAOS ";
+  color: #666;
+  font-weight: normal;
+  font-size: 0.85em;
+}
+
+.visual-select {
+  background: #1a1a24;
+  color: #e6e6e6;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.85em;
+}
+
+.stem-canvas {
+  background: #000;
+  border: 1px solid #222;
+  display: block;
+}
+
+#transport {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 776px;
+}
+
+#seekBar {
+  flex: 1;
+}
+
+#timeDisplay {
+  font-variant-numeric: tabular-nums;
+  color: #999;
+  font-size: 0.85em;
+}
+
+audio {
+  display: none;
+}
